@@ -1,22 +1,22 @@
-month_to_season = input("Введите число месяца от 1 до 12")
+month_to_season = input("Введите число месяца от 1 до 12: ")
 month = int(month_to_season)
 
 print(month)
 feedback = ""
-if (month == 12) or (month == 1) or (month == 2):
-    feedback = ("Зима")
+def month_to_season(month):
+    if month in [12, 1, 2]:
+        print("Зима")
 
-elif (month == 3) or (month == 4) or (month == 5):
-    feedback = ("Весна")
+    elif month in [3, 4, 5]:
+        print("Весна")
 
-elif (month == 6) or (month == 7) or (month == 8):
-    feedback = ("Лето")
+    elif month in [6, 7, 8]:
+        print("Лето")
 
-elif (month == 9) or (month == 10) or (month == 11):
-    feedback = ("Осень")
+    elif month in [9, 10, 11]:
+        print("Осень")
 
-else:
-    feedback = ("Введите корректное число месяца")
+    else:
+        print("Введите корректное число месяца")
 
-print(feedback)
-
+month_to_season(month)

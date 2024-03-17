@@ -1,6 +1,9 @@
+from math import ceil
+
+
 def square(x):
     s = pow(x,2)
-    return int(s)
+    return s
 
-from math import ceil
-print(ceil(square(1.99)))
+
+print(ceil(square(5.01)))
