@@ -2,7 +2,6 @@ month_to_season = input("Введите число месяца от 1 до 12: 
 month = int(month_to_season)
 
 print(month)
-feedback = ""
 def month_to_season(month):
     if month in [12, 1, 2]:
         print("Зима")
