@@ -12,9 +12,18 @@ driver.maximize_window()
 
 driver.get('http://uitestingplayground.com/classattr')
 
+sleep (5)
 
-for press_blue_button in range(3):
-    press_blue_button = driver.find_element(By.CSS_SELECTOR, ".btn.btn-primary").click()
+blue_button = driver.find_element(By.CSS_SELECTOR, ".btn-primary")
+blue_button.click()
+
+alert = driver.switch_to.alert
+alert.accept()
+
+for _ in range(3):
+    blue_button.click()
+    alert = driver.switch_to.alert
+    alert.accept()
 
 
 sleep(5)
