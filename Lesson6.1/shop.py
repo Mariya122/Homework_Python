@@ -33,6 +33,29 @@ press_continue = driver.find_element(By.ID, 'continue').click()
 total = driver.find_element(By.CSS_SELECTOR, '.summary_total_label').text
 print(total)
 
+prices = driver.find_elements(By.CSS_SELECTOR, '.inventory_item_price')
+if prices:
+    price_text1 = prices[0].text
+    price_text2 = prices[1].text
+    price_text3 = prices[2].text
+
+
+    let_price_text1 = price_text1.replace('$', '')
+    let_price_text2 = price_text2.replace('$', '')
+    let_price_text3 = price_text3.replace('$', '')
+
+    let_price1 = float(let_price_text1)
+    let_price2 = float(let_price_text2)
+    let_price3 = float(let_price_text3)
+
+    sum = let_price1 + let_price2 + let_price3
+
+
+    print(sum)
+else:
+    print('цена не найдена')
+
+assert sum == total
 
 sleep(5)
 driver.quit()
