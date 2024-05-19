@@ -22,6 +22,7 @@ user_button = driver.find_element(By.CSS_SELECTOR, '#login-button').click()
 backpack = driver.find_element(By.ID, 'add-to-cart-sauce-labs-backpack').click()
 t_shirt = driver.find_element(By.ID, 'add-to-cart-sauce-labs-bolt-t-shirt').click()
 onesie = driver.find_element(By.ID, 'add-to-cart-sauce-labs-onesie').click()
+
 basket = driver.find_element(By.CSS_SELECTOR, '.shopping_cart_link').click()
 checkout = driver.find_element(By.CSS_SELECTOR, '#checkout').click()
 
@@ -31,7 +32,8 @@ zip = driver.find_element(By.ID, 'postal-code').send_keys('617073')
 press_continue = driver.find_element(By.ID, 'continue').click()
 
 total = driver.find_element(By.CSS_SELECTOR, '.summary_total_label').text
-print(total)
+total_int = total.replace('Total: $', '')
+print(total_int)
 
 prices = driver.find_elements(By.CSS_SELECTOR, '.inventory_item_price')
 if prices:

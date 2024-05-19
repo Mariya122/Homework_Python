@@ -4,6 +4,7 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.color import Color
 
 
 driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
@@ -26,15 +27,15 @@ def test_form():
     button = driver.find_element(By.CSS_SELECTOR, 'button').click()
 
 def test_color():
-    for green in driver.find_elements(By.CSS_SELECTOR, '.alert.py-2.alert-success'):
-        print('Зеленое поле:', green.get_attribute('id'), '-', green.text)
+    green = driver.find_elements(By.CSS_SELECTOR, '.alert.py-2.alert-success')
+    success = Color.from_string(green[0].value_of_css_property('background-color'))
 
-    for red in driver.find_elements(By.CSS_SELECTOR, '.alert.py-2.alert-danger'):
-        print('Красное поле:', red.get_attribute('id'), '-', red.text)
+    red = driver.find_elements(By.CSS_SELECTOR, '.alert.py-2.alert-danger')
+    danger = Color.from_string(red[0].value_of_css_property('background-color'))
 
 
-    assert green.value_of_css_property('background-color') == 'rgba(209, 231, 221, 1)'
-    assert red.value_of_css_property('background-color') == 'rgba(248, 215, 218, 1)'
+    assert str(success) == 'Color: ' + 'rgba(209, 231, 221, 1)'
+    assert str(danger) == 'Color: ' + 'rgba(248, 215, 218, 1)'
 
     sleep(5)
 
